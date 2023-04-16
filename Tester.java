@@ -1,12 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.GraphicsEnvironment;
 import java.awt.Point;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
 /**
  * The driver class for Project 4. 
@@ -17,8 +12,6 @@ import javax.swing.JOptionPane;
 public class Tester extends JFrame {
 	public static final int WINDOW_WIDTH = 700;
 	public static final int WINDOW_HEIGHT = 500;
-	private int score;
-	private JLabel scoreLabel;
 	private GamePanel panel;
 	private KeyboardListener kblistener;
 
@@ -68,6 +61,7 @@ public class Tester extends JFrame {
 			panel.move();
 			panel.repaint();
 			panel.addEnemy();
+			panel.addPowerup();
 		}  
 	}
 

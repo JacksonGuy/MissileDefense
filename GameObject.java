@@ -3,7 +3,6 @@ import javax.swing.*;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import java.io.File;
-import java.util.ArrayList;
 import java.io.IOException;
 
 abstract class GameObject extends JComponent {
@@ -13,6 +12,13 @@ abstract class GameObject extends JComponent {
     protected int y;
     protected int speed;
 
+    /**
+	 * Initializes instance variables
+	 * @param ImageName the sprite image
+	 * @param x x position on screen
+	 * @param y y position on screen
+	 * @param speed how much to move by
+	 */
     public GameObject(String ImageName, int x, int y, int speed) {
         this.x = x;
         this.y = y;
@@ -26,6 +32,9 @@ abstract class GameObject extends JComponent {
         }
     }
 
+    /**
+     * Draws the sprite on the screen
+     */
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);

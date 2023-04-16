@@ -1,14 +1,12 @@
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import javax.swing.*;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 
 public class Turret extends GameObject {
 	private int health;
 	private int damage;
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public Turret(String ImageName, int x, int y, int speed) {
 		super(ImageName, x, y, speed);
 
@@ -16,10 +14,25 @@ public class Turret extends GameObject {
 		damage = 1;
 	}
 
-	public void move(int width, int height) {
+	/**
+	 * Updates the object's position every game loop
+	 * @param width the maximum X position
+	 * @param height the maximum Y position
+	 * @param dir what direction to move in
+	 */
+	public void move(int width, int height, String dir) {
 		// Move the turret horizontally
-		if ((x + speed >= 0) && (x + sprite.getWidth() + speed <= width)) {
-			x += speed;
+		if (dir.equals("Right")) {
+			// Bounds movement
+			if (x + sprite.getWidth() + speed < width) {
+				x += speed;
+			}
+		}
+		else {
+			// Bounds movement
+			if (x + speed > 0) {
+				x -= speed;
+			}
 		}
 
 		rect = new Rectangle(x, y, sprite.getWidth(), sprite.getHeight());
